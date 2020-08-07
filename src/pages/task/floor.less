@@ -1,0 +1,119 @@
+@import '~@/styles/common.less';
+.main-body {
+  padding: 24rpx 25rpx 41rpx;
+}
+.card {
+  padding: 15px 0;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding: 0 35px;
+    font-size: 15px;
+    color: #2e2e2e;
+
+    .status {
+      color: #adadad;
+      font-size: 12px;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #adadad;
+        border-radius: 50%;
+        margin: 0 10px;
+      }
+    }
+
+    .status.delay {
+      color: #fc5556;
+
+      &::before {
+        background-color: #fc5556;
+      }
+    }
+
+    .status.overstep {
+      color: #11c593;
+
+      &::before {
+        background-color: #11c593;
+      }
+    }
+
+    .status.waiting {
+      color: #969696;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    .flex-item {
+      padding: 0 35px;
+      font-size: 12px;
+      color: #5B5B5B;
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      &:first-child {
+        border-right: solid 2px rgba(229, 229, 229, 1);
+      }
+      .target-start-time,.actual-start-time,.target-end-time
+      ,.actual-end-time{
+        margin-left: 25px;
+      }
+    }
+  }
+
+  .card-footer {
+    margin-top: 15px;
+    padding: 0 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #9b9b9b;
+
+    .progress-wrapper {
+      flex-grow: 1;
+      flex-shrink: 1;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .percent-text {
+      display: inline-block;
+      min-width: 120px;
+      text-align: right;
+    }
+  }
+}
+
+.card {
+  &.finished,
+  &.not-started {
+    .card-header {
+      color: #ccc;
+    }
+  }
+
+  &.finished {
+    .card-header {
+      color: #999;
+    }
+
+    // /deep/.uni-progress-inner-bar {
+    //   background: none !important;
+    // }
+  }
+}

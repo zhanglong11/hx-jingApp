@@ -1,0 +1,227 @@
+@import '~@/styles/common.less';
+
+.main {
+  line-height: 48px;
+}
+
+.main-header {
+  background-color: @headerColor;
+  padding: 10px 60px;
+  display: flex;
+
+  .status {
+    border: solid 1px rgba(255, 255, 255, 0.24);
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 1);
+      border-radius: 50%;
+
+      position: absolute;
+      top: 50%;
+      right: -4px;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .status-inside {
+      width: 94px;
+      height: 94px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #17b388;
+      font-size: 13px;
+      border: solid 4px #d7e1ff;
+    }
+
+    .status-text {
+      display: inline-block;
+      width: 2em;
+      line-height: 30px;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .status-info {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .flex-item {
+      font-size: 12px;
+      margin: 10px 0;
+      color: #fff;
+      .info-label {
+        opacity: 0.62;
+      }
+    }
+  }
+}
+
+.main-body {
+  padding: 0 25px 41px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100vw;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -5;
+    background-color: @headerColor;
+    height: 30px;
+  }
+}
+
+.card {
+  padding: 15px 0;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding: 0 30px;
+    font-size: 15px;
+    color: #2e2e2e;
+
+    .step-title {
+      width: 70%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: bold;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+
+    .flex-item {
+      padding: 8px 40px;
+      font-size: 12px;
+      color: #959595;
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      &:first-child {
+        border-right: solid 2px rgba(229, 229, 229, 1);
+      }
+
+      .target-start-time,.actual-start-time,.target-end-time,.actual-end-time{
+        margin-left: 25px;
+        color:#373737;
+      }
+
+      .actual-end-time {
+        font-weight: 500;
+        &.delay {
+          color: #C52424;
+        }
+        &.advance {
+          color: #2EB04C;
+        }
+      }
+
+
+    }
+  }
+
+  .card-footer {
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #9b9b9b;
+
+    .progress-wrapper {
+      flex-grow: 1;
+      flex-shrink: 1;
+      margin-right: 35px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .percent-text {
+      display: inline-block;
+      min-width: 100px;
+      text-align: center;
+    }
+  }
+}
+
+.card {
+  .status {
+    padding: 6px 10px;
+    background: #c4c4c4;
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal;
+    border-radius: 10px;
+    line-height: 1;
+  }
+  &.not-started {
+    .step-title {
+      color: #ccc;
+    }
+  }
+  &.have-in,
+  &.confirmed {
+    .status {
+      background: #4888ed;
+    }
+    .progress-con {
+      /deep/.uni-progress-inner-bar {
+        background: #829df3 !important;
+      }
+    }
+  }
+  &.confirmed {
+    .status {
+      background: #e96f3a;
+    }
+  }
+  &.finished {
+    .status {
+      &.on-time {
+        background: #36b2e0;
+      }
+      &.advance {
+        background: #2eb04c;
+      }
+      &.delay {
+        background: #c52424;
+      }
+    }
+    .progress-con {
+      /deep/.uni-progress-inner-bar {
+        background: #959595 !important;
+      }
+    }
+  }
+}

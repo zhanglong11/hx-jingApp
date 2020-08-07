@@ -1,0 +1,63 @@
+@import '~@/styles/common.less';
+.main-body {
+  padding: 0 25px 41px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100vw;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -5;
+    background-color: @headerColor;
+    height: 30px;
+  }
+}
+
+.card {
+  .card-body {
+    padding: 20px 20px 20px 30px;
+    font-size: 14px;
+    line-height: 48px;
+
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 15px 0;
+
+      .item-label {
+        flex-basis: 7em;
+        text-align: left;
+        display: inline-block;
+        color: rgba(133, 133, 133, 1);
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+      .item-detail {
+        padding-left: 20px;
+        padding-right: 10px;
+        color: rgba(72, 72, 72, 1);
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+
+    .line {
+      height: 1px;
+      background: rgba(5, 29, 46, 0.36);
+      opacity: 0.32;
+      transform: scaleY(0.5);
+      margin: 20px 0;
+    }
+  }
+}
+.btn-row {
+  padding: 0 24px 40px;
+}

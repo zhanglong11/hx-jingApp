@@ -1,0 +1,78 @@
+@import '~@/styles/common.less';
+.main {
+  box-sizing: border-box;
+  position: relative;
+
+  .card-header {
+    width: 700rpx;
+    margin: 0 auto;
+    padding: 25rpx;
+    font-weight: bold;
+  }
+
+  .card-header + .uni-card {
+    margin-top: 0;
+  }
+
+  .uni-card {
+    width: 700rpx;
+  }
+  .form-item.block-item {
+    display: block;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    /deep/.form-input {
+      padding-top: 15rpx;
+      padding-left: 0;
+    }
+  }
+  .uni-input {
+    color: #1670e1;
+  }
+}
+.form-item.file-item {
+  /deep/ .form-label {
+    width: 111px;
+    min-width: unset;
+    font-size: 13px;
+  }
+}
+.placeholder {
+  color: @placeholderColor;
+}
+
+.drawer {
+  display: flex;
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 10px 100px;
+    border-bottom: 1px solid #eee;
+    font-weight: 700;
+    font-size: 14px;
+    height: 88rpx;
+    position: relative;
+    .icon {
+      color: @h2FontColor;
+      font-size: 20px;
+    }
+    .close,
+    .save {
+      font-weight: normal;
+      color: @headerColor;
+      position: absolute;
+    }
+    .close {
+      left: 20rpx;
+    }
+    .save {
+      right: 20rpx;
+    }
+    .title {
+      font-size: 16px;
+      flex: 1;
+      text-align: center;
+      .ellipsis;
+    }
+  }
+}

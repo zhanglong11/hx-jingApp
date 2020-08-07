@@ -1,0 +1,120 @@
+@import '~@/styles/common.less';
+.main-body {
+  padding: 0 25px 41px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-sizing: border-box;
+  position: relative;
+  width: 100vw;
+  background-color: transparent;
+  .card-warp:first-child{
+    margin-top: 0;
+  }
+}
+.main-body::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: -5;
+  background-color: @headerColor;
+  height: 30px;
+}
+.card {
+  padding-top: 0;
+  padding-left: 31px;
+  padding-right: 31px;
+
+  .form-item {
+    position: relative;
+  }
+
+  .form-item + .form-item::before {
+    content: '';
+    display: block;
+    height: 1px;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: absolute;
+    background-color: @line;
+    transform: scaleY(0.5);
+  }
+
+  textarea,
+  input {
+    font-size: 14px;
+  }
+
+  // 当前页面formItem样式，主要是附件信息
+  .form-label {
+    padding: 30px 0 30px 5px;
+    font-weight: 500;
+    color: rgba(72, 72, 72, 1);
+    font-size: 14px;
+  }
+
+  .form-input {
+    padding: 0 15px 20px 0;
+  }
+
+  .file-item {
+    /deep/ .form-input {
+      text-align: right;
+    }
+
+    .file-btn {
+      border: none;
+      color: #1670e1;
+      vertical-align: top;
+      line-height: 48px;
+    }
+  }
+}
+.consume-add{
+  background: @successColor;
+  border-radius: 6rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 0 12rpx;
+}
+.consume-list{
+  display: flex;
+  align-items: center;
+  text-align: left;
+  .name{
+    flex: 1;
+  }
+  .desc{
+    margin: 0 20rpx 0 10rpx;
+    color: @h4FontColor;
+    position: relative;
+    &:after{
+      content: '';
+      width: 2rpx;
+      height: 100%;
+      border-right: 2rpx @line solid;
+      position: absolute;
+      top: 0;
+      right: -20rpx;
+    }
+  }
+  span{
+    i{
+      font-size: 12px;
+      font-style: normal;
+    }
+  }
+  .form-input{
+    width: 140rpx;
+    text-align: right;
+  }
+}

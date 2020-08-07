@@ -1,0 +1,93 @@
+@import '~@/styles/common.less';
+.wrapper {
+  width: 100vw;
+  height: 93vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  .aside {
+    flex: 0 0 200px;
+    overflow-y: auto;
+    > h3 {
+      text-align: center;
+      padding: 20px;
+      background-color: #f9f9f9;
+      &.active {
+        background-color: #fff;
+      }
+    }
+    .menu {
+      padding: 20px;
+      background-color: #f9f9f9;
+      font-size: smaller;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      &.active {
+        background: #fff;
+      }
+      //& + .menu {
+      //  margin-top: 30px;
+      //}
+    }
+  }
+  .content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+  }
+}
+.card-body {
+  padding: 10px;
+  color: @h2FontColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: x-small;
+  .card-info {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    .title {
+      font-size: 16px;
+      color: #767676;
+    }
+    .flex-item {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      > p {
+        width: 50%;
+        > .label {
+          flex: 0 0 130rpx;
+        }
+        display: flex;
+      }
+    }
+    .info-item {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &.more {
+        color: red;
+      }
+      &.less {
+        color: green;
+      }
+    }
+  }
+
+  .title {
+    padding-left: 16rpx;
+    font-size: @h2FontSize;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 15px;
+    color: #020202;
+    .ellipsis;
+  }
+}
+.search {
+  /deep/.uni-searchbar__box {
+    width: 100%;
+  }
+}

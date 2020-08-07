@@ -1,0 +1,148 @@
+@import '~@/styles/common.less';
+
+.card {
+  padding: 15px 0;
+  transition: all 0.4s;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding: 0 35px;
+    font-size: 15px;
+    color: #2e2e2e;
+    .no-start{
+      padding: 20rpx 0 20rpx 40rpx;
+      border-left: 2rpx @line solid;
+    }
+    .work-status {
+      padding: 6px 10px;
+      background: #c4c4c4;
+      font-size: 12px;
+      color: #fff;
+      font-weight: normal;
+      border-radius: 10px;
+      line-height: 1;
+      border: solid 1px rgba(255, 255, 255, 0.24);
+      position: relative;
+      &.have-in{
+        background: #4888ED;
+      }
+      &.finished{
+        background: #2EB04C;
+      }
+      &.delay{
+        background: #C52424;
+      }
+    }
+    .status {
+      color: #adadad;
+      font-size: 12px;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #adadad;
+        border-radius: 50%;
+        margin: 0 10px;
+      }
+    }
+
+    .status.delay {
+      color: #fc5556;
+
+      &::before {
+        background-color: #fc5556;
+      }
+    }
+
+    .status.overstep {
+      color: #11c593;
+
+      &::before {
+        background-color: #11c593;
+      }
+    }
+
+    .status.waiting {
+      color: #969696;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    .flex-item {
+      padding: 0 35px;
+      font-size: 12px;
+      color: #5B5B5B;
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      &:first-child {
+        border-right: solid 2px rgba(229, 229, 229, 1);
+      }
+      .target-start-time,.actual-start-time,.target-end-time
+      ,.actual-end-time{
+        margin-left: 25px;
+      }
+    }
+  }
+
+  .card-footer {
+    margin-top: 15px;
+    padding: 0 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #9b9b9b;
+
+    .progress-wrapper {
+      flex-grow: 1;
+      flex-shrink: 1;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .percent-text {
+      display: inline-block;
+      min-width: 120px;
+      text-align: right;
+    }
+  }
+}
+
+.card {
+  &:active{
+    transform: scale(1.02);
+  }
+  &.active{ 
+    box-shadow: 0 0 10rpx 0 rgba(71, 120, 243, 0.5);
+    margin-bottom: 10rpx;
+  }
+  &.finished,
+  &.not-started {
+    .card-header {
+      color: #ccc;
+    }
+  }
+
+  &.finished {
+    .card-header {
+      color: #999;
+    }
+
+    // /deep/.uni-progress-inner-bar {
+    //   background: none !important;
+    // }
+  }
+}
